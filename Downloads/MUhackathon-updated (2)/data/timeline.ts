@@ -1,0 +1,85 @@
+import type { TimelinePhase } from "./types";
+
+/** البرنامج الزمني للهاكثون (رسمي) — 11 مرحلة. */
+export const timeline: TimelinePhase[] = [
+  {
+    id: "announce",
+    title: "الإعلان الرسمي وفتح التسجيل",
+    date: "٢٦ يوليو",
+    description: "الإعلان الرسمي عن الهاكثون وفتح باب التسجيل.",
+    icon: "Megaphone",
+  },
+  {
+    id: "intro-meeting",
+    title: "اللقاء التعريفي",
+    date: "٢٨ يوليو",
+    description: "اللقاء التعريفي بالهاكثون وآلية المشاركة.",
+    icon: "Users",
+  },
+  {
+    id: "ws-1",
+    title: "ورشة: مقدمة في الابتكار الرقمي",
+    date: "٣٠ يوليو",
+    description: "ورشة «مقدمة في الابتكار الرقمي والتقنيات الناشئة».",
+    icon: "Presentation",
+  },
+  {
+    id: "ws-2",
+    title: "ورشة: تبسيط التقنيات الناشئة",
+    date: "١ أغسطس",
+    description: "ورشة «تبسيط مفاهيم التقنيات الناشئة وتطبيقاتها».",
+    icon: "Presentation",
+  },
+  {
+    id: "ws-3",
+    title: "ورشة: تصميم الخدمات الرقمية",
+    date: "٢ أغسطس",
+    description: "ورشة «تصميم الخدمات الرقمية وتجربة المستفيد».",
+    icon: "Presentation",
+  },
+  {
+    id: "ws-4",
+    title: "ورشة: البيانات والذكاء المؤسسي",
+    date: "٤ أغسطس",
+    description: "ورشة «البيانات والذكاء المؤسسي».",
+    icon: "Presentation",
+  },
+  {
+    id: "reg-close",
+    title: "إغلاق التسجيل المبدئي",
+    date: "٥ أغسطس",
+    description: "إغلاق التسجيل المبدئي في الهاكثون.",
+    icon: "LockKeyhole",
+  },
+  {
+    id: "onsite",
+    title: "الورش الحضورية",
+    date: "١٠ – ١١ أغسطس",
+    description: "ورش حضورية مكثّفة لتطوير الحلول وإعداد العروض.",
+    icon: "CalendarClock",
+  },
+  {
+    id: "submit",
+    title: "تسليم المشاريع النهائية",
+    date: "١٤ أغسطس",
+    description: "الموعد النهائي لتسليم المشاريع.",
+    icon: "UploadCloud",
+    highlight: true,
+  },
+  {
+    id: "judging",
+    title: "التحكيم والعروض النهائية",
+    date: "١٦ أغسطس",
+    description: "تحكيم المشاريع وتقديم العروض النهائية.",
+    icon: "Scale",
+    highlight: true,
+  },
+  {
+    id: "ceremony",
+    title: "حفل التكريم وإعلان الفائزين",
+    date: "يحدد لاحقًا",
+    description: "حفل التكريم وإعلان الفائزين.",
+    icon: "Award",
+    highlight: true,
+  },
+];
