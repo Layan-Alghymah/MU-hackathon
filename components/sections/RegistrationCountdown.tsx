@@ -3,6 +3,7 @@
 import { siteConfig } from "@/data/site";
 import { useCountdown, type CountdownParts } from "@/lib/useCountdown";
 import { Icon } from "@/components/ui/Icon";
+import { formatNumber } from "@/lib/utils";
 
 const units: { key: keyof CountdownParts; label: string }[] = [
   { key: "days", label: "يوم" },
@@ -58,11 +59,11 @@ export function RegistrationCountdown() {
         {units.map(({ key, label }) => (
           <div
             key={key}
-            className="flex min-w-[3.6rem] flex-col items-center rounded-2xl border border-white/20 bg-white/12 px-3 py-3 backdrop-blur-md sm:min-w-[4.6rem]"
+            className="flex min-w-[3.6rem] flex-col items-center rounded-2xl border border-white/20 bg-white/12 px-2.5 py-3 backdrop-blur-md sm:min-w-[4.8rem] sm:px-3"
           >
-            <span className="tabular-nums text-2xl font-bold text-white sm:text-3xl">
+            <span className="tabular-nums text-3xl font-bold leading-none text-white sm:text-4xl">
               {mounted && parts
-                ? String(parts[key]).padStart(2, "0")
+                ? formatNumber(parts[key]).padStart(2, "0")
                 : "—"}
             </span>
             <span className="mt-1 text-[0.7rem] text-white/75">{label}</span>

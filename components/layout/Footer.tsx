@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { siteConfig, navLinks, contact } from "@/data/site";
 import { organizer } from "@/data/partners";
-import { toArabicDigits } from "@/lib/utils";
+import { formatNumber, toEnglishDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/Icon";
 import { RegisterButton } from "@/components/ui/CtaButtons";
 import { asset } from "@/lib/asset";
 
 export function Footer() {
-  const year = toArabicDigits(new Date().getFullYear());
+  const year = formatNumber(new Date().getFullYear());
   const hasContact = Boolean(
     contact.email || contact.phone || contact.inquiriesGroupUrl,
   );
@@ -77,7 +77,7 @@ export function Footer() {
                     className="flex items-center gap-2 transition-colors hover:text-primary"
                   >
                     <Icon name="Phone" className="size-4" />
-                    {toArabicDigits(contact.phone)}
+                    {toEnglishDigits(contact.phone)}
                   </a>
                 )}
                 {contact.inquiriesGroupUrl && (

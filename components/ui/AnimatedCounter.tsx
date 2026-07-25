@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useReducedMotion, animate } from "framer-motion";
-import { toArabicDigits } from "@/lib/utils";
+import { formatNumber } from "@/lib/utils";
 
 /**
  * عدّاد رقمي متحرك — يُشغَّل مرة واحدة عند دخول العنصر إطار الرؤية.
@@ -14,7 +14,6 @@ export function AnimatedCounter({
   suffix = "",
   duration = 1.4,
   className,
-  digitStyle = "arabic",
 }: {
   /** القيمة الرقمية النهائية. */
   value: number;
@@ -22,15 +21,12 @@ export function AnimatedCounter({
   suffix?: string;
   duration?: number;
   className?: string;
-  /** "arabic" أرقام عربية-هندية (٠-٩) الافتراضي · "latin" أرقام إنجليزية (0-9). */
-  digitStyle?: "arabic" | "latin";
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
   const reduce = useReducedMotion();
   const motionValue = useMotionValue(0);
-  const format = (n: number) =>
-    digitStyle === "latin" ? String(n) : toArabicDigits(n);
+  const format = (n: number) => formatNumber(n);
 
   useEffect(() => {
     if (!inView) return;
@@ -50,7 +46,7 @@ export function AnimatedCounter({
       },
     });
     return () => controls.stop();
-  }, [inView, reduce, value, prefix, suffix, duration, motionValue, digitStyle]);
+  }, [inView, reduce, value, prefix, suffix, duration, motionValue]);
 
   return (
     <span ref={ref} className={className}>

@@ -19,10 +19,10 @@ export const siteConfig: SiteConfig = {
 
   // ⚠️ السنة غير معتمدة رسميًا بعد. عيّنها (مثال: 2025) لتفعيل العدّاد التنازلي.
   //    عند بقائها null: يُعطَّل العدّاد وتُعرض التواريخ نصيًا فقط.
-  year: null,
+  year: 2026,
 
-  registrationOpen: { label: "٢٦ يوليو", month: 7, day: 26 },
-  registrationClose: { label: "٥ أغسطس", month: 8, day: 5 },
+  registrationOpen: { label: "26 يوليو", month: 7, day: 26 },
+  registrationClose: { label: "5 أغسطس", month: 8, day: 5 },
 
   // الموعد النهائي المعتمد للتسجيل (٥ أغسطس ٢٠٢٦ نهاية اليوم) — يفعّل العدّاد الحيّ.
   registrationDeadline: "2026-08-05T23:59:59",

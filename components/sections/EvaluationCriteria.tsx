@@ -3,7 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { Icon } from "@/components/ui/Icon";
-import { toArabicDigits } from "@/lib/utils";
+import { toEnglishDigits } from "@/lib/utils";
 
 /** قسم "معايير التقييم" — ثمانية معايير تُستخدم في تقييم المشاريع. */
 export function EvaluationCriteria() {
@@ -23,8 +23,8 @@ export function EvaluationCriteria() {
             as="article"
             className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand-green/40 hover:shadow-[0_24px_50px_-30px_var(--glow)]"
           >
-            <span className="text-xs font-bold text-brand-gold tabular-nums">
-              {toArabicDigits(String(i + 1).padStart(2, "0"))}
+            <span className="text-xl font-bold leading-none text-brand-gold tabular-nums sm:text-2xl">
+              {toEnglishDigits(String(i + 1).padStart(2, "0"))}
             </span>
             <span className="mt-3 flex size-11 items-center justify-center rounded-xl bg-secondary text-brand-green transition-colors group-hover:bg-brand-green group-hover:text-white">
               <Icon name={c.icon} className="size-5" />

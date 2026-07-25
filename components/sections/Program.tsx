@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { program, programFilters } from "@/data/program";
 import type { ProgramCategory } from "@/data/types";
-import { toArabicDigits } from "@/lib/utils";
+import { formatNumber } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -165,7 +165,7 @@ export function Program() {
       </motion.ol>
 
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        إجمالي عناصر البرنامج: {toArabicDigits(program.length)}
+        إجمالي عناصر البرنامج: {formatNumber(program.length)}
       </p>
     </Section>
   );

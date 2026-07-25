@@ -11,7 +11,7 @@ import { useRef } from "react";
 import { timeline } from "@/data/timeline";
 import { siteConfig } from "@/data/site";
 import type { TimelinePhase } from "@/data/types";
-import { toArabicDigits, cn } from "@/lib/utils";
+import { toEnglishDigits, cn } from "@/lib/utils";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
@@ -81,9 +81,9 @@ function PhaseCard({
           <Icon name={status === "completed" ? "CircleCheck" : phase.icon} className="size-5" />
         </span>
         <div>
-          <div className="flex items-center gap-2 text-[0.7rem] font-bold tabular-nums">
-            <span className="text-brand-gold">
-              المرحلة {toArabicDigits(String(index + 1).padStart(2, "0"))}
+          <div className="flex items-center gap-2 text-xs font-bold tabular-nums">
+            <span className="text-sm text-brand-gold">
+              المرحلة {toEnglishDigits(String(index + 1).padStart(2, "0"))}
             </span>
             {status !== "none" && (
               <span

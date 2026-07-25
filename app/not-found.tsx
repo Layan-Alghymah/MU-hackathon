@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 text-center">
       <Logo showWordmark={false} />
-      <p className="text-7xl font-bold text-gradient-brand">٤٠٤</p>
+      <p className="text-7xl font-bold text-gradient-brand tabular-nums">404</p>
       <h1 className="text-2xl font-bold">الصفحة غير موجودة</h1>
       <p className="max-w-sm text-muted-foreground">
         عذرًا، الصفحة التي تبحث عنها غير متاحة أو تم نقلها.

@@ -11,6 +11,7 @@ import { useCountdown } from "@/lib/useCountdown";
 import { RegistrationCountdown } from "./RegistrationCountdown";
 import { HeroFloatingShapes } from "./HeroFloatingShapes";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { tracks } from "@/data/tracks";
 
 /**
  * مسار صورة خلفية الـHero.
@@ -30,7 +31,7 @@ const fadeUp = {
 
 /** إحصاءات موجزة تُعرض أسفل الدعوة لاتخاذ إجراء. */
 const heroStats: { icon: "Layers" | "Presentation" | "CalendarClock"; value: number; suffix: string; label: string }[] = [
-  { icon: "Layers", value: 3, suffix: "", label: "مسارات" },
+  { icon: "Layers", value: tracks.length, suffix: "", label: "مسارات" },
   { icon: "Presentation", value: 6, suffix: "", label: "ورشة عمل" },
   { icon: "CalendarClock", value: 4, suffix: "", label: "أسابيع" },
 ];
@@ -172,7 +173,6 @@ export function Hero() {
                 <AnimatedCounter
                   value={s.value}
                   suffix={s.suffix}
-                  digitStyle="latin"
                   className="text-2xl font-bold tabular-nums sm:text-3xl"
                 />
                 <span className="text-xs text-white/75 sm:text-sm">

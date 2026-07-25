@@ -5,10 +5,20 @@ export function cn(
   return inputs.filter(Boolean).join(" ");
 }
 
-/** تحويل الأرقام اللاتينية إلى أرقام عربية-هندية للعرض. */
-export function toArabicDigits(input: string | number): string {
-  const map = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
-  return String(input).replace(/[0-9]/g, (d) => map[Number(d)]);
+const englishNumberFormatter = new Intl.NumberFormat("en-US", {
+  useGrouping: false,
+});
+
+/** تنسيق الأرقام الديناميكية بالأرقام الإنجليزية في جميع واجهات الموقع. */
+export function formatNumber(input: number): string {
+  return englishNumberFormatter.format(input);
+}
+
+/** تحويل أي أرقام عربية-هندية داخل نص إلى أرقام إنجليزية. */
+export function toEnglishDigits(input: string | number): string {
+  return String(input).replace(/[٠-٩]/g, (digit) =>
+    String("٠١٢٣٤٥٦٧٨٩".indexOf(digit)),
+  );
 }
 
 export interface PluralForms {
@@ -30,6 +40,6 @@ export function arabicPlural(n: number, forms: PluralForms): string {
   if (n === 1) return forms.one;
   if (n === 2) return forms.two;
   const mod = n % 100;
-  if (mod >= 3 && mod <= 10) return `${toArabicDigits(n)} ${forms.few}`;
-  return `${toArabicDigits(n)} ${forms.many}`;
+  if (mod >= 3 && mod <= 10) return `${formatNumber(n)} ${forms.few}`;
+  return `${formatNumber(n)} ${forms.many}`;
 }

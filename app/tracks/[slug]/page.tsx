@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { tracks, getTrack } from "@/data/tracks";
 import { deriveTechnologies, deriveImpact } from "@/lib/derive";
-import { toArabicDigits } from "@/lib/utils";
+import { formatNumber, toEnglishDigits } from "@/lib/utils";
 import { InnerHeader } from "@/components/layout/InnerHeader";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -103,8 +103,8 @@ export default async function TrackPage({ params }: Props) {
 
           {/* عدد الأمثلة */}
           <QuickCard icon="Target" label="أمثلة للتحديات" tint={tint}>
-            <p className="text-sm font-semibold">
-              {toArabicDigits(examplesCount)} أمثلة للتحديات
+            <p className="text-lg font-bold tabular-nums">
+              {formatNumber(examplesCount)} أمثلة للتحديات
             </p>
           </QuickCard>
 
@@ -151,10 +151,6 @@ export default async function TrackPage({ params }: Props) {
             <Icon name="Target" className="size-5 text-brand-green" />
             <h2 className="text-2xl font-bold">أمثلة للتحديات</h2>
           </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            أمثلة توضيحية لمجالات التحديات المحتملة — وليست قائمة تحديات نهائية
-            معتمدة.
-          </p>
         </Reveal>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -166,10 +162,10 @@ export default async function TrackPage({ params }: Props) {
               className="group flex items-start gap-3 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-green/40 hover:shadow-[0_20px_44px_-32px_var(--glow)]"
             >
               <span
-                className="flex size-9 shrink-0 items-center justify-center rounded-lg text-sm font-bold tabular-nums text-white transition-transform group-hover:scale-105"
+                className="flex size-10 shrink-0 items-center justify-center rounded-lg text-base font-bold tabular-nums text-white transition-transform group-hover:scale-105"
                 style={{ backgroundColor: track.accent }}
               >
-                {toArabicDigits(String(i + 1).padStart(2, "0"))}
+                {toEnglishDigits(String(i + 1).padStart(2, "0"))}
               </span>
               <span className="pt-1 text-sm font-medium leading-relaxed">
                 {example}
