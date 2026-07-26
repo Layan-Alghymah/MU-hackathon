@@ -10,16 +10,35 @@ import { InfiniteCarousel } from "@/components/ui/InfiniteCarousel";
  * شعار شريك فقط — بلا صندوق أو حدود أو خلفية، بارتفاع موحّد مع الحفاظ
  * الكامل على نسبة أبعاده الأصلية. يُعرض فقط عند توفر ملف الشعار فعليًا.
  */
-function PartnerLogo({ name, logo, width = 200, height = 64 }: Partial<Partner> & { name: string }) {
+function PartnerLogo({
+  name,
+  logo,
+  width = 200,
+  height = 64,
+  layout = "marquee",
+}: Partial<Partner> & {
+  name: string;
+  layout?: "grid" | "marquee";
+}) {
   if (!logo) return null;
   return (
-    <div className="flex h-[4.75rem] shrink-0 items-center sm:h-[5.5rem]">
+    <div
+      className={
+        layout === "grid"
+          ? "flex h-24 w-full items-center justify-center px-3 transition-transform duration-200 hover:-translate-y-0.5 sm:h-28 sm:px-5"
+          : "flex h-[4.75rem] w-44 shrink-0 items-center justify-center sm:h-[5.5rem] sm:w-52"
+      }
+    >
       <Image
         src={asset(logo)}
         alt={name}
         width={width}
         height={height}
-        className="h-full w-auto object-contain"
+        className={
+          layout === "grid"
+            ? "h-16 w-full object-contain sm:h-20"
+            : "max-h-full max-w-full object-contain"
+        }
       />
     </div>
   );
@@ -47,13 +66,11 @@ export function Partners() {
           <h3 className="text-center text-sm font-bold text-brand-gold">
             الشركاء الداخليون
           </h3>
-          <InfiniteCarousel
-            className="mt-6"
-            durationSeconds={26}
-            items={internalPartners.map((p) => (
-              <PartnerLogo key={p.name} {...p} />
+          <div className="mx-auto mt-6 grid max-w-5xl grid-cols-2 items-center gap-x-6 gap-y-5 sm:gap-x-8 lg:grid-cols-4">
+            {internalPartners.map((p) => (
+              <PartnerLogo key={p.name} {...p} layout="grid" />
             ))}
-          />
+          </div>
         </Reveal>
       )}
 

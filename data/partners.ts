@@ -49,8 +49,8 @@ export const partners: Partner[] = [
     category: "شركاء داخليون",
     group: "internal",
     logo: "/logos/partners/عمادة شؤون الطلاب.png",
-    width: 700,
-    height: 356,
+    width: 215,
+    height: 172,
     url: null,
   },
   {
@@ -76,8 +76,8 @@ export const partners: Partner[] = [
     category: "شركاء داخليون",
     group: "internal",
     logo: "/logos/partners/مرصد المسؤولية الاجتماعية.png",
-    width: 700,
-    height: 356,
+    width: 214,
+    height: 177,
     url: null,
   },
   // ── الشركاء الخارجيون ──────────────────────────────────────────

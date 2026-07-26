@@ -21,15 +21,19 @@ export function EvaluationCriteria() {
             key={c.id}
             delay={0.05 * i}
             as="article"
-            className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand-green/40 hover:shadow-[0_24px_50px_-30px_var(--glow)]"
+            className="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-border bg-card px-4 pb-5 pt-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-brand-green/40 hover:shadow-[0_22px_44px_-30px_var(--glow)]"
           >
-            <span className="text-xl font-bold leading-none text-brand-gold tabular-nums sm:text-2xl">
+            <span
+              className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-brand-green via-brand-green-soft to-brand-gold"
+              aria-hidden
+            />
+            <span className="flex size-11 items-center justify-center self-start rounded-full bg-brand-gold/10 text-lg font-bold leading-none text-brand-gold tabular-nums ring-1 ring-brand-gold/20">
               {toEnglishDigits(String(i + 1).padStart(2, "0"))}
             </span>
-            <span className="mt-3 flex size-11 items-center justify-center rounded-xl bg-secondary text-brand-green transition-colors group-hover:bg-brand-green group-hover:text-white">
-              <Icon name={c.icon} className="size-5" />
+            <span className="-mt-5 flex size-14 items-center justify-center rounded-2xl bg-secondary text-brand-green transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:bg-brand-green group-hover:text-white">
+              <Icon name={c.icon} className="size-7" strokeWidth={1.8} />
             </span>
-            <h3 className="mt-4 text-sm font-bold leading-snug">
+            <h3 className="mt-3 text-sm font-bold leading-snug sm:text-base">
               {c.title}
             </h3>
           </Reveal>
