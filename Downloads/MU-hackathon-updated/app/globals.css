@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  نظام التصميم — «الضوء المؤسسي المتقدّم»
+  الهوية الرسمية لجامعة المجمعة: أخضر #536830 وذهبي #a5893f.
+*/
+
+:root {
+  --radius: 1rem;
+
+  /* ألوان العلامة */
+  --brand-green: #536830;
+  --brand-green-deep: #3d4f22;
+  --brand-green-soft: #6f8a45;
+  --brand-gold: #a5893f;
+  --brand-gold-soft: #c2a862;
+  --brand-ink: #23271a;
+
+  /* أسطح الوضع الفاتح */
+  --background: #faf9f3;
+  --foreground: #23271a;
+  --card: #ffffff;
+  --card-foreground: #23271a;
+  --popover: #ffffff;
+  --popover-foreground: #23271a;
+  --primary: #536830;
+  --primary-foreground: #ffffff;
+  --secondary: #eef1e4;
+  --secondary-foreground: #3d4f22;
+  --muted: #f1f2ea;
+  --muted-foreground: #6a7060;
+  --accent: #a5893f;
+  --accent-foreground: #ffffff;
+  --destructive: #b4462f;
+  --destructive-foreground: #ffffff;
+  --success: #3f7a3f;
+  --border: rgba(83, 104, 48, 0.14);
+  --input: rgba(83, 104, 48, 0.16);
+  --ring: rgba(83, 104, 48, 0.4);
+
+  --surface-alt: #f2f2e9;
+  --grid-line: rgba(83, 104, 48, 0.07);
+  --glow: rgba(165, 137, 63, 0.18);
+}
+
+.dark {
+  --background: #141710;
+  --foreground: #eef1e6;
+  --card: #1c2016;
+  --card-foreground: #eef1e6;
+  --popover: #1c2016;
+  --popover-foreground: #eef1e6;
+  --primary: #9bb56a;
+  --primary-foreground: #141710;
+  --secondary: #232819;
+  --secondary-foreground: #eef1e6;
+  --muted: #20251a;
+  --muted-foreground: #a9b09c;
+  --accent: #c2a862;
+  --accent-foreground: #141710;
+  --destructive: #e06a4f;
+  --destructive-foreground: #141710;
+  --success: #7db97d;
+  --border: rgba(238, 241, 230, 0.1);
+  --input: rgba(238, 241, 230, 0.14);
+  --ring: rgba(155, 181, 106, 0.4);
+
+  --surface-alt: #191d13;
+  --grid-line: rgba(238, 241, 230, 0.05);
+  --glow: rgba(194, 168, 98, 0.14);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-deep: var(--brand-green-deep);
+  --color-brand-green-soft: var(--brand-green-soft);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-soft: var(--brand-gold-soft);
+  --color-surface-alt: var(--surface-alt);
+
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+
+  --font-sans: var(--font-plex-arabic), system-ui, sans-serif;
+
+  --breakpoint-xs: 26rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* هوامش تعويض الرأس الثابت عند التنقل بالمرساة */
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background: var(--brand-gold);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 48rem) {
+    .container-site {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* خلفية شبكية خفيفة مؤسسية */
+  .bg-grid {
+    background-image:
+      linear-gradient(to left, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 3.5rem 3.5rem;
+  }
+
+  .text-gradient-brand {
+    background: linear-gradient(
+      110deg,
+      var(--brand-green) 0%,
+      var(--brand-green-soft) 45%,
+      var(--brand-gold) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .card-surface {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+
+  .glow-soft {
+    box-shadow: 0 0 0 1px var(--border), 0 24px 60px -30px var(--glow);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--brand-gold);
+  }
+}
+
+/* شريط التمرير الرفيع */
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--brand-green) 40%, transparent);
+    border-radius: 999px;
+    border: 3px solid var(--background);
+  }
+}
+
+/* Marquee */
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee-rtl var(--marquee-duration, 32s) linear infinite;
+}
+.marquee-paused:hover .animate-marquee {
+  animation-play-state: paused;
+}
