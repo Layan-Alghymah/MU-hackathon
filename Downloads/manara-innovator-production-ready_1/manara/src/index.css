@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/*
+  ==========================================================================
+  Design Tokens — منارة (Manara) Innovator Interface
+  ==========================================================================
+  Concept: "منارة" means lighthouse/beacon — the system guides ideas through
+  review stages toward becoming projects. The deep ink-teal ties to trust and
+  institutional gravity; the amber accent is used sparingly as the "beacon
+  light" — active states, progress, and key calls to action only.
+
+  Typography: Tajawal (display/headings — geometric, confident) paired with
+  IBM Plex Sans Arabic (body/data — built for dense, legible enterprise UI).
+  ==========================================================================
+*/
+
+@theme {
+  --font-display: "Tajawal", "IBM Plex Sans Arabic", sans-serif;
+  --font-body: "IBM Plex Sans Arabic", "Tajawal", sans-serif;
+
+  /* Brand */
+  --color-brand-950: #08211e;
+  --color-brand-900: #0e3b36;
+  --color-brand-800: #145951;
+  --color-brand-700: #1c7267;
+  --color-brand-600: #268a7c;
+  --color-brand-500: #3aa393;
+  --color-brand-100: #e2efec;
+  --color-brand-50: #f2f8f6;
+
+  /* Beacon accent (amber) — sparing use only */
+  --color-beacon-700: #96700f;
+  --color-beacon-600: #b8860b;
+  --color-beacon-500: #d4a017;
+  --color-beacon-100: #faf1d8;
+  --color-beacon-50: #fdf8ec;
+
+  /* Neutrals (warm-cool balance, not stark black/white) */
+  --color-ink-950: #16201d;
+  --color-ink-900: #1a2421;
+  --color-ink-700: #3d4744;
+  --color-ink-500: #5f6b67;
+  --color-ink-300: #647169;
+  --color-ink-200: #cdd3d0;
+  --color-ink-100: #e4e4e1;
+  --color-ink-50: #f6f7f6;
+  --color-surface: #ffffff;
+  --color-canvas: #fafaf8;
+
+  /* Status */
+  --color-status-success-fg: #1e6b46;
+  --color-status-success-bg: #e6f3ec;
+  --color-status-warning-fg: #96700f;
+  --color-status-warning-bg: #faf1d8;
+  --color-status-danger-fg: #a5322a;
+  --color-status-danger-bg: #fbeae8;
+  --color-status-info-fg: #2e6e9e;
+  --color-status-info-bg: #e8f1f8;
+  --color-status-neutral-fg: #5f6b67;
+  --color-status-neutral-bg: #eef0ef;
+
+  --radius-card: 1rem;
+  --radius-control: 0.5rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-canvas);
+  color: var(--color-ink-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Visible keyboard focus everywhere — accessibility floor */
+:focus-visible {
+  outline: 2px solid var(--color-brand-700);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+::selection {
+  background-color: var(--color-brand-100);
+  color: var(--color-brand-900);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Thin scrollbars, quiet and institutional */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-200) transparent;
+}
